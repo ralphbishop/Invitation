@@ -39,6 +39,13 @@
   }
 
   // ---- measurement helpers ----
+  // Both states return the CENTER POINT of where the signature block's
+  // visual center should sit, plus the font-size to use. Because we always
+  // measure the signature's OWN rendered size (see measureSignatureAt) and
+  // anchor by its true center, "centerX/centerY" here means the exact same
+  // thing in both states — no more guessed %-offsets that only look right
+  // at one particular width.
+
   // HERO state: centered in the landing viewport, large.
   function getHeroRect() {
     var vw = window.innerWidth;
@@ -60,10 +67,22 @@
     // slot height is comparatively tighter.
     var fontSize = clamp(r.height * 0.46, 28, 66);
     return {
-      centerX: r.left + r.width * 0.30,
-      centerY: r.top + r.height * 0.46,
+      centerX: r.left + r.width / 2,
+      centerY: r.top + r.height / 2,
       fontSize: fontSize
     };
+  }
+
+  // ---- measure the signature's OWN rendered box at a given font-size ----
+  // We set the font-size first (this affects layout), then read back the
+  // element's actual width/height. This replaces the old fixed "-42%"
+  // guess: instead of assuming where the ink sits inside the box, we ask
+  // the browser directly, every frame, at the exact size we're about to
+  // show it at.
+  function measureSignatureAt(fontSize) {
+    signature.style.fontSize = fontSize + "px";
+    var box = signature.getBoundingClientRect();
+    return { width: box.width, height: box.height };
   }
 
   function clamp(v, min, max) { return Math.max(min, Math.min(max, v)); }
@@ -100,10 +119,19 @@
     var cy = lerp(hero.centerY, settled.centerY, eased);
     var fs = lerp(hero.fontSize, settled.fontSize, eased);
 
+    // Set font-size FIRST, then measure the box it produces at that size.
+    // This is the fix: instead of guessing a fixed "-42%, -50%" offset that
+    // only lines up correctly at one specific size/width, we ask the
+    // browser for the real rendered box every frame and center THAT.
+    var box = measureSignatureAt(fs);
+
     signature.style.left = cx + "px";
     signature.style.top = cy + "px";
-    signature.style.fontSize = fs + "px";
-    signature.style.transform = "translate(-42%, -50%)"; // visually center the script text's ink
+    // translate by exactly half the measured box in each axis — this is a
+    // true geometric center, valid at every scroll position, not an
+    // eyeballed percentage.
+    signature.style.transform =
+      "translate(" + (-box.width / 2) + "px, " + (-box.height / 2) + "px)";
 
     // ambient florals: fade slightly as we settle into the homepage
     document.querySelectorAll(".floral").forEach(function (f) {
