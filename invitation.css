@@ -375,6 +375,11 @@ body.is-loading .landing__inner {
 }
 
 @media (max-width: 560px) {
+  .landing,
+  .morph-track {
+    background-position: center top;
+  }
+
   .home__eyebrow {
     padding-left: 0;
     max-width: none;
