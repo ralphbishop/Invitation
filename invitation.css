@@ -125,7 +125,6 @@ body.is-loading .landing__inner {
   align-items: center;
   justify-content: center;
   background-image: url(images/background.png);
-  background-attachment: fixed;
   background-size: cover;
   background-position: center;
   z-index: 2;
@@ -161,7 +160,6 @@ body.is-loading .landing__inner {
   position: relative;
   z-index: 2;
   background-image: url(images/background.png);
-  background-attachment: fixed;
   background-size: cover;
   background-position: center;
   pointer-events: none;
@@ -175,7 +173,6 @@ body.is-loading .landing__inner {
   position: relative;
   min-height: 100vh;
   background-image: url(images/background.png);
-  background-attachment: fixed;
   background-size: cover;
   background-position: center;
   z-index: 2;
