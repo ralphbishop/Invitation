@@ -176,8 +176,9 @@ body.is-loading .landing__inner {
   padding: 60px 5vw 40px;
   gap: 40px;
 }
- 
+
 .home__panel {
+  position: relative;
   display: flex;
   flex-direction: column;
   padding-top: 0;
@@ -227,24 +228,17 @@ body.is-loading .landing__inner {
   font-weight: 600;
   font-size: clamp(1.15rem, 1.7vw, 1.5rem);
   color: #6b7556;
+  letter-spacing: 2px;
   margin-top: 15px;
   margin-bottom: 28px;
-  letter-spacing: 2px;
   padding-left: 310px;
 }
-
-.home__photo {
-  position: relative;
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-}
-
 
 .calendar {
   position: absolute;
   bottom: -22px;
-  right: 780px;
+  left: 100%;
+  transform: translateX(-140px);
   z-index: 10;
   background: var(--blush-300);
   border-radius: 18px;
@@ -253,7 +247,7 @@ body.is-loading .landing__inner {
   max-width: 420px;
   aspect-ratio: 420 / 320;
   overflow: hidden;
-  box-shadow: 0 10px 10px -22px rgba(90, 40, 55, 0.35);
+  box-shadow: 0 18px 40px -22px rgba(90, 40, 55, 0.35);
 }
 
 .calendar img {
@@ -263,8 +257,14 @@ body.is-loading .landing__inner {
   object-fit: contain;
 }
 
-
 /* ---- photo side ---- */
+
+.home__photo {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
 
 .home__photo-frame {
   position: relative;
@@ -333,6 +333,10 @@ body.is-loading .landing__inner {
   }
   .home__photo { order: -1; }
   .home__panel { max-width: none; }
+  .home__photo-frame {
+    margin: 0 auto;
+    max-width: 480px;
+  }
   .home__photo-img {
     min-height: 320px;
     max-height: 480px;
@@ -341,7 +345,9 @@ body.is-loading .landing__inner {
     position: relative;
     bottom: auto;
     left: auto;
-    margin-top: 20px;
+    transform: none;
+    margin: 20px auto 0;
+    max-width: 340px;
   }
 }
 
@@ -354,8 +360,8 @@ body.is-loading .landing__inner {
     padding-left: 60px;
     max-width: none;
   }
-  .signature-slot { 
-    padding-left: 60px; 
+  .signature-slot {
+    padding-left: 60px;
   }
   .home__event {
     padding-left: 60px;
@@ -367,46 +373,49 @@ body.is-loading .landing__inner {
     padding-left: 0;
     max-width: none;
   }
-  .home__body { 
+  .home__body {
     text-align: left;
     padding-left: 0;
-    max-width: none; 
+    max-width: none;
   }
-  .signature-slot { 
-    padding-left: 0; 
+  .signature-slot {
+    padding-left: 0;
   }
   .home__event {
     padding-left: 0;
+  }
+  .home__photo-frame {
+    max-width: 340px;
   }
   .home__photo-img {
     min-height: 260px;
     max-height: 380px;
   }
-  .calendar { 
-    padding: 20px 18px 18px; 
+  .calendar {
+    padding: 20px 18px 18px;
   }
 }
 
 @media (max-width: 320px) {
-   .home__photo-img {
-      min-height: 180px;
-      max-height: 260px;
-   } 
-   .home__eyebrow {
-      font-size: clamp(1.1rem, 4vw, 1.4rem);
-   }
-   .home__body {
-      font-size: clamp(0.8rem, 3vw, 0.9rem);
-      gap: 6px;
-   }
-   .signature-slot {
-      height: clamp(80px, 20vw, 110px);
-   }
-   .home__event {
-      font-size: clamp(0.9rem, 3.5vw, 1.1rem);
-      margin-bottom: 16px;
-   }
-   .calendar {
-      max-width: 260px;
-   }
+  .home__photo-img {
+    min-height: 180px;
+    max-height: 260px;
+  }
+  .home__eyebrow {
+    font-size: clamp(1.1rem, 4vw, 1.4rem);
+  }
+  .home__body {
+    font-size: clamp(0.8rem, 3vw, 0.9rem);
+    gap: 6px;
+  }
+  .signature-slot {
+    height: clamp(80px, 20vw, 110px);
+  }
+  .home__event {
+    font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+    margin-bottom: 16px;
+  }
+  .calendar {
+    max-width: 260px;
+  }
 }
