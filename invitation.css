@@ -125,6 +125,9 @@ body.is-loading .landing__inner {
   align-items: center;
   justify-content: center;
   background-image: url(images/background.png);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
   z-index: 2;
   overflow: hidden;
 }
@@ -157,7 +160,10 @@ body.is-loading .landing__inner {
   height: 25vh; /* scroll distance for the full morph */
   position: relative;
   z-index: 2;
-  background: linear-gradient(to bottom, var(--blush-100), var(--blush-200));
+  background-image: url(images/background.png);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
   pointer-events: none;
 }
 
