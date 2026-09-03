@@ -386,3 +386,27 @@ body.is-loading .landing__inner {
     padding: 20px 18px 18px; 
   }
 }
+
+@media (max-width: 320px) {
+   .home__photo-img {
+      min-height: 180px;
+      max-height: 260px;
+   } 
+   .home__eyebrow {
+      font-size: clamp(1.1rem, 4vw, 1.4rem);
+   }
+   .home__body {
+      font-size: clamp(0.8rem, 3vw, 0.9rem);
+      gap: 6px;
+   }
+   .signature-slot {
+      height: clamp(80px, 20vw, 110px);
+   }
+   .home__event {
+      font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+      margin-bottom: 16px;
+   }
+   .calendar {
+      max-width: 260px;
+   }
+}
