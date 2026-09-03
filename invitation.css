@@ -154,7 +154,7 @@ body.is-loading .landing__inner {
    ========================================================================== */
 
 .morph-track {
-  height: 140vh; /* scroll distance for the full morph */
+  height: 25vh; /* scroll distance for the full morph */
   position: relative;
   z-index: 2;
   background: linear-gradient(to bottom, var(--blush-100), var(--blush-200));
