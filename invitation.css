@@ -29,8 +29,8 @@
   --cream-50:   #fbf4ec;
 
   /* -- type -- */
-  --font-script: 'Alex Brush', cursive;
-  --font-display: 'Cormorant', serif;
+  --font-script: 'Amoresa', serif;
+  --font-display: 'Maragsa', serif;
   --font-body: 'Cormorant Garamond', serif;
 
   /* -- motion -- */
@@ -124,7 +124,7 @@ body.is-loading .landing__inner {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(120% 100% at 50% 20%, var(--blush-50) 0%, var(--blush-100) 60%, var(--blush-200) 100%);
+  background-image: url(images/background.png);
   z-index: 2;
   overflow: hidden;
 }
@@ -168,39 +168,43 @@ body.is-loading .landing__inner {
 .home {
   position: relative;
   min-height: 100vh;
-  background: var(--blush-200);
+  background-image: url(images/background.png);
   z-index: 2;
   display: grid;
   grid-template-columns: 1.15fr 1fr;
   align-items: stretch;
-  padding: 96px 5vw 80px;
+  padding: 60px 5vw 40px;
   gap: 40px;
 }
-
+ 
 .home__panel {
   display: flex;
   flex-direction: column;
-  padding-top: 12px;
+  padding-top: 0;
   max-width: 640px;
 }
 
 .home__eyebrow {
-  font-family: var(--font-display);
+  font-family: var(--font-script);
   font-style: italic;
   font-weight: 500;
-  font-size: clamp(1.4rem, 2.4vw, 1.9rem);
-  color: var(--sage-700);
-  margin-bottom: 22px;
+  font-size: clamp(1.5rem, 1.6vw, 1.9rem);
+  color: #6b7556;
+  padding-left: 200px;
+  max-width: 680px;
 }
 
 .home__body {
   display: flex;
   flex-direction: column;
-  gap: 18px;
-  font-size: clamp(1rem, 1.15vw, 1.15rem);
-  line-height: 1.7;
-  color: var(--sage-600);
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: clamp(0.95rem, 1.05vw, 1.1rem);
+  line-height: 1.4;
+  color: #6b7556;
   text-align: justify;
+  padding-left: 250px;
+  max-width: 580px;
 }
 
 .home__body em {
@@ -213,102 +217,54 @@ body.is-loading .landing__inner {
    Uses a higher min so narrow/mobile viewports don't under-reserve space
    relative to the font-size formula used in script.js (based on slot width). */
 .signature-slot {
-  height: clamp(150px, 30vw, 190px);
+  height: clamp(130px, 25vw, 170px);
   width: 100%;
+  padding-left: 200px;
 }
 
 .home__event {
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: clamp(1.15rem, 1.7vw, 1.5rem);
-  color: var(--sage-700);
-  letter-spacing: 0.02em;
-  margin-top: -6px;
-  margin-bottom: 28px;
-}
-
-.home__calendar-wrap {
-  margin-top: auto;
-}
-
-.calendar {
-  position: relative;
-  background: var(--blush-300);
-  border-radius: 18px;
-  padding: 26px 28px 22px;
-  max-width: 420px;
-  overflow: hidden;
-  box-shadow: 0 18px 40px -22px rgba(90, 40, 55, 0.35);
-}
-
-.calendar__month {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(1.4rem, 2vw, 1.7rem);
-  color: var(--rose-500);
-  margin-bottom: 14px;
+  font-size: clamp(1.15rem, 1.7vw, 1.5rem);
+  color: #6b7556;
+  margin-top: 15px;
+  margin-bottom: 28px;
+  letter-spacing: 2px;
+  padding-left: 310px;
 }
-
-.calendar__grid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 8px 4px;
-  text-align: center;
-  font-size: 0.85rem;
-}
-
-.calendar__grid--head {
-  font-weight: 600;
-  color: var(--sage-700);
-  margin-bottom: 4px;
-}
-
-.calendar__grid span {
-  padding: 4px 0;
-  color: var(--sage-600);
-  font-weight: 500;
-  position: relative;
-  z-index: 2;
-}
-
-.calendar__grid span.is-empty { visibility: hidden; }
-
-.calendar__grid span.is-marked {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-}
-
-.calendar__heart {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 180%;
-  height: auto;
-  transform: translate(-50%, -50%);
-  fill: var(--rose-600);
-  opacity: 0.9;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.is-marked__num {
-  position: relative;
-  z-index: 2;
-  color: var(--cream-50);
-  font-weight: 700;
-  transform: translateY(3%);
-}
-
-/* ---- photo side ---- */
 
 .home__photo {
+  position: relative;
   display: flex;
   align-items: stretch;
   justify-content: center;
 }
+
+
+.calendar {
+  position: absolute;
+  bottom: -22px;
+  right: 780px;
+  z-index: 10;
+  background: var(--blush-300);
+  border-radius: 18px;
+  padding: 0;
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 420 / 320;
+  overflow: hidden;
+  box-shadow: 0 10px 10px -22px rgba(90, 40, 55, 0.35);
+}
+
+.calendar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+
+/* ---- photo side ---- */
 
 .home__photo-frame {
   position: relative;
@@ -318,56 +274,18 @@ body.is-loading .landing__inner {
   box-shadow: 0 30px 60px -30px rgba(90, 40, 55, 0.4);
 }
 
-.photo-placeholder {
+/* Actual photo of Aika — replaces .photo-placeholder once an image is
+   uploaded. object-fit: cover keeps the frame's shape no matter the
+   source image's native dimensions, cropping instead of distorting. */
+.home__photo-img {
+  display: block;
   width: 100%;
   height: 100%;
   min-height: 560px;
-  background:
-    repeating-linear-gradient(135deg, rgba(185,107,124,0.07) 0 14px, transparent 14px 28px),
-    linear-gradient(160deg, #f6dfe2, #eec7cd);
-  border: 2px dashed var(--rose-500);
+  max-height: 850px;
+  object-fit: cover;
+  object-position: center;
   border-radius: 22px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-  text-align: center;
-  padding: 30px;
-}
-
-.photo-placeholder__icon {
-  width: 84px;
-  height: auto;
-  fill: none;
-  stroke: var(--rose-500);
-  stroke-width: 3;
-  opacity: 0.6;
-}
-.photo-placeholder__icon circle,
-.photo-placeholder__icon path {
-  fill: var(--rose-500);
-  stroke: none;
-  opacity: 0.55;
-}
-.photo-placeholder__icon rect {
-  fill: none;
-  stroke: var(--rose-500);
-  stroke-width: 3;
-}
-
-.photo-placeholder__label {
-  font-family: var(--font-display);
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  color: var(--rose-600);
-  font-size: 1rem;
-}
-
-.photo-placeholder__sub {
-  font-size: 0.82rem;
-  color: var(--sage-600);
-  opacity: 0.75;
 }
 
 /* ==========================================================================
@@ -377,14 +295,15 @@ body.is-loading .landing__inner {
    "hero" position/size and its homepage "settled" position/size.
    ========================================================================== */
 
-#signature {
+#signature {  
   position: fixed;
+  margin-top: 10px;
   top: 0;
   left: 0;
   transform-origin: center center;
   font-family: var(--font-script);
   color: var(--rose-500);
-  line-height: 0.85;
+  line-height: 1.10;
   white-space: nowrap;
   pointer-events: none;
   z-index: 5;
@@ -396,7 +315,7 @@ body.is-loading .landing__inner {
 }
 
 #signature .word--love { display: inline-block; }
-#signature .word--aika { display: block; }
+#signature .word--aika { display: block; text-align: right; padding-left: 1.3em;}
 
 /* Homepage caption under the signature once settled (fades in near the end) */
 .home__event-label {
@@ -413,12 +332,57 @@ body.is-loading .landing__inner {
     padding: 72px 6vw 60px;
   }
   .home__photo { order: -1; }
-  .photo-placeholder { min-height: 380px; }
   .home__panel { max-width: none; }
+  .home__photo-img {
+    min-height: 320px;
+    max-height: 480px;
+  }
+  .calendar {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 767px) and (min-width: 561px) {
+  .home__eyebrow {
+    padding-left: 60px;
+    max-width: none;
+  }
+  .home__body {
+    padding-left: 60px;
+    max-width: none;
+  }
+  .signature-slot { 
+    padding-left: 60px; 
+  }
+  .home__event {
+    padding-left: 60px;
+  }
 }
 
 @media (max-width: 560px) {
-  .home__body { text-align: left; }
-  .calendar { padding: 20px 18px 18px; }
-  .calendar__grid { font-size: 0.72rem; gap: 6px 2px; }
+  .home__eyebrow {
+    padding-left: 0;
+    max-width: none;
+  }
+  .home__body { 
+    text-align: left;
+    padding-left: 0;
+    max-width: none; 
+  }
+  .signature-slot { 
+    padding-left: 0; 
+  }
+  .home__event {
+    padding-left: 0;
+  }
+  .home__photo-img {
+    min-height: 260px;
+    max-height: 380px;
+  }
+  .calendar { 
+    padding: 20px 18px 18px; 
+  }
 }
