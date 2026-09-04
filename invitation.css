@@ -404,6 +404,7 @@ body.is-loading .landing__inner {
   }
   .home__event {
     padding-left: 0;
+    text-align: center;
   }
   .home__photo-frame {
     max-width: 340px;
