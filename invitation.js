@@ -12,6 +12,7 @@
 
   var track   = document.getElementById("morph-track");
   var slot    = document.getElementById("signature-slot");
+  var scrollHint = document.querySelector(".scroll-hint");
   var signature;
 
   // ---- build the signature element once ----
@@ -66,10 +67,8 @@
     // including narrow mobile widths where panel width stays large but the
     // slot height is comparatively tighter.
     var fontSize = clamp(r.height * 0.46, 28, 66);
-    var padLeft = parseFloat(getComputedStyle(slot).paddingLeft) || 0;
-    var contentWidth = Math.max(r.width - padLeft, 0);
     return {
-      centerX: r.left + padLeft + contentWidth / 2,
+      centerX: r.left + r.width / 2,
       centerY: r.top + r.height / 2,
       fontSize: fontSize
     };
@@ -139,6 +138,15 @@
     document.querySelectorAll(".floral").forEach(function (f) {
       f.style.opacity = String(lerp(0.9, 0.5, eased));
     });
+
+    // hide the scroll hint as soon as the user starts scrolling
+    if (scrollHint) {
+      if (p > 0.02) {
+        scrollHint.classList.add("is-hidden");
+      } else {
+        scrollHint.classList.remove("is-hidden");
+      }
+    }
   }
 
   function onScroll() {
