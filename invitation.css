@@ -150,6 +150,51 @@ body.is-loading .landing__inner {
   width: 100%;
 }
 
+/* ---- Scroll hint — tells first-time visitors to scroll down ---- */
+
+.scroll-hint {
+  position: absolute;
+  bottom: clamp(24px, 5vh, 48px);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: var(--rose-500);
+  z-index: 3;
+  animation: scroll-hint-bounce 2s ease-in-out infinite;
+}
+
+.scroll-hint__label {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+.scroll-hint__arrow {
+  width: 22px;
+  height: 22px;
+}
+
+@keyframes scroll-hint-bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+/* Fade out once the user starts scrolling — handled by JS toggling this class */
+.scroll-hint.is-hidden {
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-soft);
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-hint { animation: none; }
+}
+
 
 /* ==========================================================================
    MORPH TRACK — invisible spacer that defines how much scrolling
