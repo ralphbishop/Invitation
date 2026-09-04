@@ -160,10 +160,7 @@ body.is-loading .landing__inner {
   height: 25vh; /* scroll distance for the full morph */
   position: relative;
   z-index: 2;
-  background-image: url(images/background.png);
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
+  background: linear-gradient(to bottom, var(--blush-100), var(--blush-200));
   pointer-events: none;
 }
 
@@ -450,7 +447,6 @@ body.is-loading .landing__inner {
 
 @media (hover: none) and (pointer: coarse) {
   .landing,
-  .morph-track,
   .home {
     background-attachment: scroll;
   }
