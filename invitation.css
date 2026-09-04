@@ -163,15 +163,9 @@ body.is-loading .landing__inner {
   gap: 6px;
   color: var(--rose-500);
   z-index: 3;
+  opacity: 1;
+  transition: opacity 1s var(--ease-soft);
   animation: scroll-hint-bounce 2s ease-in-out infinite;
-}
-
-.scroll-hint__label {
-  font-family: var(--font-display);
-  font-size: 0.85rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  opacity: 0.75;
 }
 
 .scroll-hint__arrow {
@@ -187,7 +181,6 @@ body.is-loading .landing__inner {
 /* Fade out once the user starts scrolling — handled by JS toggling this class */
 .scroll-hint.is-hidden {
   opacity: 0;
-  transition: opacity 0.4s var(--ease-soft);
   pointer-events: none;
 }
 
