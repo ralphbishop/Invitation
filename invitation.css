@@ -125,7 +125,6 @@ body.is-loading .landing__inner {
   align-items: center;
   justify-content: center;
   background-image: url(images/background.png);
-  background-attachment: fixed;
   background-size: cover;
   background-position: center;
   z-index: 2;
@@ -160,7 +159,9 @@ body.is-loading .landing__inner {
   height: 25vh; /* scroll distance for the full morph */
   position: relative;
   z-index: 2;
-  background: linear-gradient(to bottom, var(--blush-100), var(--blush-200));
+  background-image: url(images/background.png);
+  background-size: cover;
+  background-position: center;
   pointer-events: none;
 }
 
@@ -172,7 +173,6 @@ body.is-loading .landing__inner {
   position: relative;
   min-height: 100vh;
   background-image: url(images/background.png);
-  background-attachment: fixed;
   background-size: cover;
   background-position: center;
   z-index: 2;
@@ -435,19 +435,5 @@ body.is-loading .landing__inner {
   }
   .calendar {
     max-width: 260px;
-  }
-}
-
-/* ==========================================================================
-   TOUCH DEVICE OVERRIDE — background-attachment: fixed is unreliable on
-   touchscreens (especially iOS Safari). We keep it for desktop/mouse users
-   (nice subtle parallax feel) and fall back to normal scroll behavior on
-   any device using touch input, regardless of screen size.
-   ========================================================================== */
-
-@media (hover: none) and (pointer: coarse) {
-  .landing,
-  .home {
-    background-attachment: scroll;
   }
 }
