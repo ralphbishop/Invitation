@@ -139,9 +139,12 @@
       f.style.opacity = String(lerp(0.9, 0.5, eased));
     });
 
-    // hide the scroll hint as soon as the user starts scrolling
+    // hide the scroll hint as soon as the user starts scrolling —
+    // uses raw scrollY directly (not morph progress) so it reacts to
+    // the very first pixel of scroll, not just after the morph track
+    // math clears its threshold.
     if (scrollHint) {
-      if (p > 0.02) {
+      if (window.scrollY > 10) {
         scrollHint.classList.add("is-hidden");
       } else {
         scrollHint.classList.remove("is-hidden");
