@@ -121,6 +121,8 @@ body.is-loading .landing__inner {
 .landing {
   position: relative;
   height: 100vh;
+  min-height: -webkit-fill-available;
+  height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -477,5 +479,18 @@ body.is-loading .landing__inner {
   }
   .calendar {
     max-width: 260px;
+  }
+}
+
+/* ==========================================================================
+   TOUCH DEVICE OVERRIDE — background-attachment: fixed is unreliable on
+   touchscreens (especially iOS Safari). We keep it for desktop/mouse users
+   and fall back to normal scroll behavior on any touch input device.
+   ========================================================================== */
+
+@media (hover: none) and (pointer: coarse) {
+  .landing,
+  .home {
+    background-attachment: scroll;
   }
 }
