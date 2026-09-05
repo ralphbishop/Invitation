@@ -283,7 +283,7 @@ body.is-loading .landing__inner {
 
 .calendar {
  position: absolute;
-  bottom: -35px;
+  bottom: -22px;
   left: 100%;
   transform: translateX(-170px);
   z-index: 10;
