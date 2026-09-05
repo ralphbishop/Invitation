@@ -67,8 +67,10 @@
     // including narrow mobile widths where panel width stays large but the
     // slot height is comparatively tighter.
     var fontSize = clamp(r.height * 0.46, 28, 66);
+    var padLeft = parseFloat(getComputedStyle(slot).paddingLeft) || 0;
+    var contentWidth = Math.max(r.width - padLeft, 0);
     return {
-      centerX: r.left + r.width / 2,
+      centerX: r.left + padLeft + contentWidth / 2,
       centerY: r.top + r.height / 2,
       fontSize: fontSize
     };
@@ -189,3 +191,8 @@
     init();
   }
 })();
+
+
+
+
+
