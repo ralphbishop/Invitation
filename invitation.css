@@ -345,7 +345,7 @@ body.is-loading .landing__inner {
 #signature {  
   position: fixed;
   margin-top: 10px;
-  margin-left: 100px;
+  margin-left: 50px;
   top: 0;
   left: 0;
   transform-origin: center center;
