@@ -439,9 +439,11 @@ body.is-loading .landing__inner {
   }
   .signature-slot {
     padding-left: 0;
+    margin-top: 10px;
   }
   .home__event {
     padding-left: 0;
+    padding-top: 10px;
     text-align: center;
   }
   .home__photo-frame {
